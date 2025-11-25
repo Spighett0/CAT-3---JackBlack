@@ -3,7 +3,6 @@ from random import shuffle
 suits = ["hearts", "clubs", "diamonds", "spades"]
 numbers = [str(n) for n in range(2, 11)] + ["Jack", "Queen", "King", "Ace"]
 
-# ---------- Card and Deck ----------
 class Card:
     def __init__(self, number, suit):
         self._suit = suit
@@ -34,7 +33,7 @@ class Deck:
             self.populate()
         return self._cards.pop()
 
-# ---------- Hand ----------
+
 class Hand:
     def __init__(self):
         self.cards = []
@@ -45,7 +44,7 @@ class Hand:
     def total(self):
         value = sum(c.value() for c in self.cards)
         aces = sum(1 for c in self.cards if c.number == "Ace")
-        # Adjust for aces
+        
         while value > 21 and aces:
             value -= 10
             aces -= 1
@@ -60,7 +59,7 @@ class Hand:
     def is_blackjack(self):
         return len(self.cards) == 2 and self.total() == 21
 
-# ---------- Game Logic ----------
+
 class Blackjack:
     def __init__(self):
         self.deck = Deck()

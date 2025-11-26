@@ -50,9 +50,6 @@ deal_btn = tk.Button(button_frame, text="DEAL", font=('Arial', 14), bg='green', 
 deal_btn.pack(side=tk.LEFT, padx=10)
 
 
-# =========================================================
-# 4. HELPER FUNCTIONS
-# =========================================================
 
 def get_card_filename(card: Card, face_up=True):
     """Converts a Card object or uses a card back for the filename."""
@@ -98,7 +95,7 @@ def draw_cards(cards: list[Card], start_y, hide_first=False):
 
         except FileNotFoundError:
             # Fallback for missing images
-            placeholder_text = "BACK" if not face_up else f"{get_card_gui_rank(card.number)}\n{card._suit.capitalize()}"
+            placeholder_text = "BACK" if not face_up else f"{(card.number)}\n{card._suit.capitalize()}"
             placeholder = tk.Label(root, 
                                    text=placeholder_text, 
                                    width=14, height=7, bg='gray', fg='white',
